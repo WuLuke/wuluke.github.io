@@ -1,8 +1,29 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>hello github pages</h1>
-<p>we are almost done</p>
-<p><a href="www.google.com.tw">google</a></p> 
-</body>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    NO: <input type="text" id="numberInput"><br><br>
+    Name: <input type="text" id="nameInput"><br><br>
+    Score: <input type="text" id="scoreInput"><br><br><br>
+
+    <input type="button" value="送出" onclick="SendScore()">
+    <script type="text/javascript">
+        function SendScore(){
+            $.get("https://script.google.com/macros/s/AKfycbzs4xMKis8gxopcJXilKX3CQAE0rfk-Dei53GB-xshiCI15S2ro/exec", {
+                        "number": document.getElementById("numberInput").value,
+                        "name": document.getElementById("nameInput").value,
+                        "score": document.getElementById("scoreInput").value
+                    },
+                    function (data) {
+                        document.write("--------------------------");
+                        document.write("Result = "+data);
+                        document.write("--------------------------");
+                    });
+        }
+    </script>
+  </body>
 </html>
